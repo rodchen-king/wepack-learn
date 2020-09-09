@@ -171,3 +171,13 @@ module.exports = {
   "build": "webpack"
 }
 ```
+
+<br>
+
+### 7. source-map本地查看源代码调试
+***
+```
+module.exports = {
+  devtool: 'inline-source-map',
+}
+```
