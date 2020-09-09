@@ -11,7 +11,10 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
    },
   module: {
     // loader

@@ -231,3 +231,17 @@ module.exports = {
   }
 }
 ```
+
+<br>
+
+### 10. 开发环境代码proxy
+***
+```
+module.exports = {
+  devServer: {
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
+  }
+}
+```
