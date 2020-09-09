@@ -99,3 +99,18 @@ plugins: [
   new HtmlWebpackPlugin()
 ]
 ```
+
+<br>
+
+### 打包文件处理
+***
+```
+npm install --save-dev clean-webpack-plugin
+```
+```
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+  plugins: [
+    new CleanWebpackPlugin()
+  ]
+```
