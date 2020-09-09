@@ -60,3 +60,27 @@ babel-preset-env 的主要参数选项有：
 * include：一个包含使用的 plugins 的数组
 * exclude：一个包含不使用的 plugins 的数组
 * useBuiltIns：为 polyfills 应用 @babel/preset-env ，可选 "usage" | "entry" | false，默认为 false
+
+<br>
+
+### css抽取
+***
+```
+npm install --save-dev mini-css-extract-plugin
+```
+
+```
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module: {
+  rules: [
+    {
+      test: /\.css$/,
+      use: [MiniCssExtractPlugin.loader, 'css-loader'],
+    }
+  ]
+},
+plugins: [
+  new MiniCssExtractPlugin(),
+]
+```
