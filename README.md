@@ -114,3 +114,38 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
     new CleanWebpackPlugin()
   ]
 ```
+
+<br>
+
+### 加载静态资源，图片，数据，字体
+***
+```
+npm install --save-dev file-loader
+npm install --save-dev csv-loader xml-loader
+```
+```
+{
+  test: /\.(png|svg|jpg|gif)$/,
+  use: [
+    'file-loader'
+  ]
+},
+{
+  test: /\.(woff|woff2|eot|ttf|otf)$/,
+  use: [
+    'file-loader'
+  ]
+},
+{
+  test: /\.(csv|tsv)$/,
+  use: [
+    'csv-loader'
+  ]
+},
+{
+  test: /\.xml$/,
+  use: [
+    'xml-loader'
+  ]
+}
+```
