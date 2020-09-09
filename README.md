@@ -84,3 +84,18 @@ plugins: [
   new MiniCssExtractPlugin(),
 ]
 ```
+
+<br>
+
+### html的处理：复制并压缩html文件
+***
+```
+npm install --save-dev html-webpack-plugin
+```
+```
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+plugins: [
+  new HtmlWebpackPlugin()
+]
+```
