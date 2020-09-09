@@ -380,17 +380,29 @@ module.exports = merge(common, {
    },
    optimization: {
     splitChunks: {
-    cacheGroups: {
-        vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'common',
-            chunks: 'all'
-        }
-    }
+      cacheGroups: {
+          vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name: 'common',
+              chunks: 'all'
+          }
+      }
     }
   },
    plugins: [
     new UglifyJsPlugin()
   ]
 });
+```
+
+<br>
+
+### 13. external 外部扩展
+***
+```
+module.exports = {
+  externals: {      // lodash 是外部依赖，不要打包到bundle中，运行的时候会从外面获取资源
+    lodash: 'lodash'
+  }
+}
 ```

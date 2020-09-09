@@ -15,13 +15,13 @@ module.exports = merge(common, {
    },
    optimization: {
     splitChunks: {
-    cacheGroups: {
-        vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'common',
-            chunks: 'all'
-        }
-    }
+      cacheGroups: {
+          vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name: 'common',
+              chunks: 'all'
+          }
+      }
     }
   },
    plugins: [
