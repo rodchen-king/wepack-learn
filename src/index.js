@@ -6,7 +6,7 @@ import './index.css';
 
 function component() {
   var element = document.createElement('div');
-  element.innerHTML = _.join(['Hello', 'webpack'], module.add(1, 2));
+  element.innerHTML = _.join(['Hello m', 'webpack'], module.add(1, 2));
   element.classList.add('hello');
 
   var myIcon = new Image();

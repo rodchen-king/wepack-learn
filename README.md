@@ -63,7 +63,7 @@ babel-preset-env 的主要参数选项有：
 
 <br>
 
-### css抽取
+### 3. css抽取
 ***
 ```
 npm install --save-dev mini-css-extract-plugin
@@ -87,7 +87,7 @@ plugins: [
 
 <br>
 
-### html的处理：复制并压缩html文件
+### 4. html的处理：复制并压缩html文件
 ***
 ```
 npm install --save-dev html-webpack-plugin
@@ -102,7 +102,7 @@ plugins: [
 
 <br>
 
-### 打包文件处理
+### 5. 打包文件处理
 ***
 ```
 npm install --save-dev clean-webpack-plugin
@@ -117,7 +117,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 <br>
 
-### 加载静态资源，图片，数据，字体
+### 6. 加载静态资源，图片，数据，字体
 ***
 ```
 npm install --save-dev file-loader
@@ -147,5 +147,27 @@ npm install --save-dev csv-loader xml-loader
   use: [
     'xml-loader'
   ]
+}
+```
+
+<br>
+
+### 7. development 模式下启动服务器并实时刷新
+***
+```
+npm install --save-dev webpack-dev-server
+```
+```
+module.exports = {
+  devServer: {
+    contentBase: './dist'
+   }
+}
+```
+```
+"scripts": {
+  "start": "webpack-dev-server --open",
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "build": "webpack"
 }
 ```
