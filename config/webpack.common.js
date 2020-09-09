@@ -9,6 +9,11 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../dist')
   },
+  resolve: { // 路径别名
+    alias: { 
+        '@': path.resolve('src')
+    }
+  },
   externals: {
     lodash: 'lodash'
   },

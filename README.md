@@ -406,3 +406,17 @@ module.exports = {
   }
 }
 ```
+
+<br>
+
+### 14. resolve alias @别名
+***
+```
+module.exports = {
+  resolve: { // 路径别名
+    alias: { 
+        '@': path.resolve('src')
+    }
+  }
+}
+```

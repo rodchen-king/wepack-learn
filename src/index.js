@@ -2,7 +2,7 @@ import _ from 'lodash';
 import module from './es6/es6Module';
 import Icon from './assets/logo.svg';
 import Data from './assets/data.xml';
-import './index.css';
+import '@/index.css';
 
 function component() {
   var element = document.createElement('div');
