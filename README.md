@@ -174,10 +174,60 @@ module.exports = {
 
 <br>
 
-### 7. source-map本地查看源代码调试
+### 8. source-map本地查看源代码调试
 ***
 ```
 module.exports = {
   devtool: 'inline-source-map',
+}
+```
+
+<br>
+
+### 9. eslint
+***
+```
+npm install eslint-loader --save-dev
+npm install eslint --save-dev
+npm install eslint-friendly-formatter --save
+```
+```
+rules: [
+  {
+    test: /\.js$/,
+    exclude: /node_modules/,
+    loader: 'eslint-loader',
+    include: [path.resolve(__dirname, 'src')],        // 指定检查的目录
+    options: {                                        // 这里的配置项参数将会被传递到 eslint 的 CLIEngine
+      formatter: require('eslint-friendly-formatter') // 指定错误报告的格式规范，formatter默认是stylish，如果想用第三方的要另外安装
+    }
+  }
+}
+```
+```
+module.exports = {
+  'root': true,
+  'plugins': [
+      'html'
+  ],
+  'settings': {
+      'html/html-extensions': ['.wxml']
+  },
+  'rules': {
+      'newline-per-chained-call': 'off',
+      'eqeqeq': 'off',
+      'indent': ['error', 4, { SwitchCase: 1 }],
+      'prefer-rest-params': 'off',
+      'prefer-template': 'off',
+      'array-callback-return': 'off',  // 暂时关闭
+      'prefer-const': 'warn',
+     
+
+      'no-restricted-properties': [2, {
+          'object': 'wx',
+          'property': 'navigateTo',
+          'message': 'Please use this.$goto!!!'
+      }]
+  }
 }
 ```
