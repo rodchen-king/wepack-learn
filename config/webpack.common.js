@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',     // 相对根目录路径
+  // context: path.resolve(__dirname, "../src"),
+  entry: './index.js',     // 相对根目录路径
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../dist')
