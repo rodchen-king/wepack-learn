@@ -14,9 +14,9 @@ module.exports = {
         '@': path.resolve('src')
     }
   },
-  externals: {
-    lodash: 'lodash'
-  },
+  // externals: {
+  //   lodash: 'lodash'
+  // },
   module: {
     // loader
     rules: [
