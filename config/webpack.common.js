@@ -4,10 +4,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  // context: path.resolve(__dirname, "../src"),
-  entry: './index.js',     // 相对根目录路径
+  context: path.resolve(__dirname, "../src"),
+
+
+  entry: './entry/entry1.js',                                            // 字符串用法
+  // entry: ['./entry/entry2.js', './entry/entry1.js'],                     // 数组用法
+  // entry: { entry1a: './entry/entry2.js', entry2a: './entry/entry1.js' }, // 对象用法
+
+
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[contentHash].js',
     path: path.resolve(__dirname, '../dist')
   },
   resolve: { // 路径别名
