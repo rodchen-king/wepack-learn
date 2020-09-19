@@ -6,15 +6,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   context: path.resolve(__dirname, "../src"),
 
-
-  entry: './entry/entry1.js',                                            // 字符串用法
+  // entry: './entry/entry1.js',                                            // 字符串用法
   // entry: ['./entry/entry2.js', './entry/entry1.js'],                     // 数组用法
-  // entry: { entry1a: './entry/entry2.js', entry2a: './entry/entry1.js' }, // 对象用法
+  entry: { entry1a: './entry/entry1.js', entry2a: './entry/entry2.js' }, // 对象用法
 
 
   output: {
-    filename: '[name].[contentHash].js',
-    path: path.resolve(__dirname, '../dist')
+    filename: '[name].[contenthash].js',
+    chunkFilename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, '../dist/front'),
+    publicPath: '/front'
   },
   resolve: { // 路径别名
     alias: { 
@@ -83,7 +84,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css'
+    }),
     new HtmlWebpackPlugin(),
     new CleanWebpackPlugin()
   ]

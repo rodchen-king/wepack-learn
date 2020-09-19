@@ -4,9 +4,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = merge(common, {
   devtool: 'source-map',
-  output: {
-    chunkFilename: '[name].[chunkhash:8].js'
-  },
+  // output: {
+  //   chunkFilename: '[name].[chunkhash:8].js'
+  // },
   devServer: {
     contentBase: '../dist',
     proxy: {
