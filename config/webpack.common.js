@@ -14,8 +14,8 @@ module.exports = {
   output: {
     filename: '[name].[contenthash].js',
     chunkFilename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, '../dist/front'),
-    publicPath: '/front'
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: ''
   },
   resolve: { // 路径别名
     alias: { 
@@ -26,6 +26,7 @@ module.exports = {
   //   lodash: 'lodash'
   // },
   module: {
+    noParse: /lodash/,
     // loader
     rules: [
       {
@@ -46,16 +47,31 @@ module.exports = {
               }
             }]]
           }
-        }
+        },
+        enforce: 'post',
+        parser: {
+          amd: false, // 禁用 AMD
+          commonjs: false, // 禁用 CommonJS
+          system: false, // 禁用 SystemJS
+          harmony: false, // 禁用 ES2015 Harmony import/export
+          requireInclude: false, // 禁用 require.include
+          requireEnsure: false, // 禁用 require.ensure
+          requireContext: false, // 禁用 require.context
+          browserify: false, // 禁用特殊处理的 browserify bundle
+          requireJs: false, // 禁用 requirejs.*
+        },
       },
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
+        test: /\.js$/,                                    // 文件匹配规则
+        use: {
+          loader: 'eslint-loader',                          // 文件匹配之后对应编译的laoder
+          options: {                                        // 这里的配置项参数将会被传递到 eslint 的 CLIEngine
+            formatter: require('eslint-friendly-formatter') // 指定错误报告的格式规范，formatter默认是stylish，如果想用第三方的要另外安装
+          }
+        },
+        enforce: 'pre',
+        exclude: /node_modules/,                          // 排除检查的目录
         include: [path.resolve(__dirname, 'src')],        // 指定检查的目录
-        options: {                                        // 这里的配置项参数将会被传递到 eslint 的 CLIEngine
-          formatter: require('eslint-friendly-formatter') // 指定错误报告的格式规范，formatter默认是stylish，如果想用第三方的要另外安装
-        }
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
