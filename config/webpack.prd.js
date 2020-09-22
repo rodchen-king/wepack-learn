@@ -7,7 +7,7 @@ module.exports = [
     target: 'node',
     devtool: 'source-map',
     output: {
-      filename: 'lib.node.[contenthash].js'
+      filename: 'lib.node.[hash].js'
     },
      optimization: {
       splitChunks: {
@@ -29,7 +29,7 @@ module.exports = [
     target: 'web',
     devtool: 'source-map',
     output: {
-      filename: 'lib.[contenthash].js'
+      filename: 'lib.[hash].js'
     },
      optimization: {
       splitChunks: {

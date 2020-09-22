@@ -11,8 +11,8 @@ module.exports = {
   // entry: { entry1a: './entry/entry1.js', entry2a: './entry/entry2.js' }, // 对象用法
 
   output: {
-    filename: '[name].[contenthash].js',
-    chunkFilename: '[name].[contenthash].js',
+    filename: '[name].[hash].js',
+    chunkFilename: '[name].[hash].js',
     path: path.resolve(__dirname, '../dist'),
     publicPath: ''
   },
@@ -106,7 +106,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css'
+      filename: '[name].[hash].css'
     }),
     new HtmlWebpackPlugin(),
     new CleanWebpackPlugin()
