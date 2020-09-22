@@ -1,7 +1,8 @@
 import module from '@/es6/es6Module';
-import _ from 'lodash';
-import './entry1.css';
+import customerButton from 'customerButton';
+import _ from 'lodash/index.js';
+import './css/entry1';
 
-const name = 'entry123';
+const name = 'entry1231';
 
-console.log(name)
+console.log(customerButton.name)

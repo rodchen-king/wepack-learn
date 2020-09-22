@@ -6,10 +6,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   context: path.resolve(__dirname, "../src"),
 
-  // entry: './entry/entry1.js',                                            // 字符串用法
+  entry: './entry/entry1.js',                                            // 字符串用法
   // entry: ['./entry/entry2.js', './entry/entry1.js'],                     // 数组用法
-  entry: { entry1a: './entry/entry1.js', entry2a: './entry/entry2.js' }, // 对象用法
-
+  // entry: { entry1a: './entry/entry1.js', entry2a: './entry/entry2.js' }, // 对象用法
 
   output: {
     filename: '[name].[contenthash].js',
@@ -19,8 +18,14 @@ module.exports = {
   },
   resolve: { // 路径别名
     alias: { 
-        '@': path.resolve('src')
-    }
+      '@': path.resolve('src'),                                           // 地址的默认路径是根目录
+      // 'components': path.resolve('src/components')
+    },
+    mainFiles: ["index"],
+    extensions: [".js", ".json", '.css'],
+    modules:['./src/components','node_modules'],
+    // enforceModuleExtension: false,
+    // enforceExtension: true,
   },
   // externals: {
   //   lodash: 'lodash'
@@ -51,7 +56,7 @@ module.exports = {
         enforce: 'post',
         parser: {
           amd: false, // 禁用 AMD
-          commonjs: false, // 禁用 CommonJS
+          commonjs: true, // 禁用 CommonJS
           system: false, // 禁用 SystemJS
           harmony: false, // 禁用 ES2015 Harmony import/export
           requireInclude: false, // 禁用 require.include
