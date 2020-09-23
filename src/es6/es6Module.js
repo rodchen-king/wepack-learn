@@ -1,3 +1,6 @@
 export default {
-  add: (a, b) => a * b
+  add: (a, b) => {
+    debugger
+    return a * b
+  }
 }
