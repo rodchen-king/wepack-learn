@@ -2,14 +2,14 @@
  * @Description: 
  * @Author: rodchen
  * @Date: 2020-09-17 15:46:11
- * @LastEditTime: 2021-09-21 00:39:09
+ * @LastEditTime: 2021-09-21 01:11:25
  * @LastEditors: rodchen
  */
 import _ from 'lodash';
 import module from './es6/es6Module';
 import Icon from './assets/logo.svg';
 import Data from './assets/data.xml';
-import '@/index.css';
+import '@/index.less';
 
 function component() {
   var element = document.createElement('div');

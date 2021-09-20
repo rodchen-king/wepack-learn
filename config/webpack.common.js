@@ -39,6 +39,15 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
+        test: /\.less$/i,
+        loader: [
+          MiniCssExtractPlugin.loader,
+          { loader: "css-loader" },
+          { loader: 'postcss-loader' },
+          { loader: "less-loader" },
+        ],
+      },
+      {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,  // node_modules 目录或者其他不需要编译的源代码 
         use: {
