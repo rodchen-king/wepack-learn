@@ -22,7 +22,7 @@ module.exports = {
       // 'components': path.resolve('src/components')
     },
     mainFiles: ["index"],
-    extensions: [".js", ".json", '.css'],
+    extensions: ['.ts', ".js", ".json", '.css'],
     modules:['./src/components','node_modules'],
     // enforceModuleExtension: false,
     // enforceExtension: true,
@@ -77,6 +77,10 @@ module.exports = {
         enforce: 'pre',
         exclude: /node_modules/,                          // 排除检查的目录
         include: [path.resolve(__dirname, 'src')],        // 指定检查的目录
+      },
+      {
+        test: /\.ts$/,
+        loader: 'awesome-typescript-loader'
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
